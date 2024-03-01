@@ -12,9 +12,6 @@ import Details from "./Details";
 import Address from "./Address";
 import Success from "./Success";
 function App() {
-  const apiKey = process.env.REACT_APP_API_KEY;
-  const adminKey = process.env.REACT_APP_ADMIN_ID;
-  console.log(apiKey, adminKey);
   
   const [id, setId] = useState(localStorage.getItem("id"));
   const appContextSetter = {
