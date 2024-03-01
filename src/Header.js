@@ -3,6 +3,8 @@ import { Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function Header() {
+  const userId = localStorage.getItem("id");
+  const adminId = process.env.REACT_APP_ADMIN_ID;
   return (
     <>
       <div className="bg-warning d-flex justify-content-center h6 pt-3">
@@ -30,11 +32,6 @@ function Header() {
             id="navbarNavAltMarkup"
           >
             <div className="navbar-nav">
-              <input
-                id="hidden"
-                type="hidden"
-                // value="<%=info_obj._id%>"
-              ></input>
               <Link to="/home" className="nav-item nav-link">
                 <h5>Home</h5>
               </Link>
@@ -44,13 +41,15 @@ function Header() {
               <Link to="/notification" className="nav-item nav-link">
                 <h5>Notification</h5>
               </Link>
-              <Link
-                to="/adminPage"
-                id="admin_page"
-                className="nav-item nav-link"
-              >
-                <h5>Admin Page</h5>
-              </Link>
+              {adminId === userId ? (
+                <Link
+                  to="/adminPage"
+                  id="admin_page"
+                  className="nav-item nav-link"
+                >
+                  <h5>Admin Page</h5>
+                </Link>
+              ) : null}
             </div>
           </Navbar.Collapse>
         </Navbar>
