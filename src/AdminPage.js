@@ -110,7 +110,6 @@ function AdminPage() {
               />
             </div>
             <Button
-              type="submit"
               className="btn-lg btn-success rounded-0"
               onClick={adminSubmit}
             >
